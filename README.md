@@ -2,17 +2,37 @@
 
 A personal "super skill set" for software development and tech leadership — a collection of modular agent skills that load only when needed.
 
+## Quick start
+
+```bash
+git clone https://github.com/kwnstantina/skillakia.git
+cd skillakia
+
+# Claude Code — all skills (all projects)
+./install.sh claude          # or .\install.ps1 claude on Windows
+
+# Claude Code — one project only
+./install.sh claude /path/to/project
+
+# Codex — merged AGENTS.md + skills/ into a repo
+./install.sh codex /path/to/repo
+```
+
+After a Claude Code install, restart and run `/skills` to verify all 20 skills are discovered. Codex reads `AGENTS.md` automatically at the repo root.
+
 ## Structure
 
-| Pack | Skills | Purpose |
-|------|--------|---------|
-| [`team-ai-skills/`](team-ai-skills) | 11 | Dev + lead craft: code review, security, testing, ADRs, debugging, guardrails, migrations, onboarding |
-| [`spec-driven-pipeline/`](spec-driven-pipeline) | 9 | Spec → code pipeline: story intake, spec authoring, technical planning, code-gen, test-gen, verification |
+| Path | Contents |
+|------|----------|
+| `team-ai-skills/` | 11 craft skills (Claude + Codex flavors) |
+| `spec-driven-pipeline/` | 9 spec → code pipeline skills (Claude + Codex flavors) |
+| `codex/` | Merged, ready-to-copy `AGENTS.md` + combined `skills/` for Codex |
+| `install.sh` / `install.ps1` | One-command installers (bash / PowerShell) |
 
-Each pack contains skills in two flavors:
+Each pack ships two flavors:
 
-- `claude/skills/` — Claude Code format
-- `codex/skills/` — OpenAI Codex format
+- `claude/skills/<name>/SKILL.md` — Claude Code skills (auto-discovered)
+- `codex/skills/<name>.md` — Codex skills (referenced by `AGENTS.md`)
 
 ## Skills
 
@@ -23,3 +43,5 @@ Each pack contains skills in two flavors:
 ### spec-driven-pipeline
 
 `ac-analysis`, `code-gen`, `risk-report`, `spec-author`, `spec-flow`, `story-intake`, `technical-plan`, `test-gen`, `verify`
+
+See each pack's README for the full pipeline diagram and customization notes.
